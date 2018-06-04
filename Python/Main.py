@@ -1,6 +1,7 @@
-print("Hello!")
-#a = b = c = d = 1
-a, b, c = 1, 2, "Test"
-print(a)
-print(b)
-print(c)
+#print("2" + "hello")
+#print("{}, world!".format("Hello"))
+
+x = False
+if x:
+    x = 1 + 2
+    print("x is:{}".format(x))
