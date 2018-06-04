@@ -1,7 +1,9 @@
-#print("2" + "hello")
-#print("{}, world!".format("Hello"))
 
-x = False
-if x:
-    x = 1 + 2
-    print("x is:{}".format(x))
+
+def main():
+    l = long(10)
+
+
+if __name__ == '__main__':
+    main()
+    print(VAR_X)
