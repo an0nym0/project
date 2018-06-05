@@ -2,8 +2,10 @@
 def main():
     name = input("Insert your name: ")
     age = input("Insert your age: ")
-    print("Меня зовут {}.".format(name))
-    print("Мой возраст {} год.".format(age))
+#    print("Меня зовут {}.".format(name))
+#    print("Мой возраст {} год.".format(age))
+#    print("Меня зовут {}. ".format(name) + "Мой возраст {} год.".format(age))
+    print("Меня зовут {}. Мой возраст {} год.".format(name, age))
 
 
 if __name__ == '__main__':
