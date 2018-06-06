@@ -42,27 +42,60 @@
 
 from decimal import Decimal
 
-def print_even(arg1=range(-1,101)):
+# def print_even(arg1=range(1,100)):
+#     for x in arg1:
+#          if isinstance(x, int):
+            # if not x % 1:
+            #     print(x, end=' ')
+            #     if not x % 3:
+            #         print(x, end=' ')
+            #         print("Fizz", end=' ')
+            #         if not x % 5:
+            #             print("Buzz", end=' ')
+            #             if not x % 15:
+                            # print("FizzBuzz", end=' ')
+    # print()
+
+# print_even(*tuple(range(1,11)))
+# print_even()
+
+# def func(x):
+#     for x in range(0,101):
+#         print(x, end=' ')
+#         if not x % 3 == 0:
+#             print("Fizz", end=' ')
+#             if not x % 5:
+#                 print("Buzz", end=' ')
+#                 if not x % 15:
+#                     print("FizzBuzz", end=' ')
+#
+#
+#
+# func(x=0)
+def func(arg1=range(1,101)):
     for x in arg1:
-        if isinstance(x, int):
-            if not x % 2:
-                print(x, end=' ')
-    print()
+        if (x % 15) == 0:
+            print('FizzBuzz', end=' ')
+        elif (x % 3) == 0:
+            print('Fizz', end=' ')
+        elif (x % 5) == 0:
+            print('Buzz', end=' ')
+        else:
+            print(x, end=' ')
 
-print_even(range(1,11))
-print_even()
+func()
 
-vat = 0.18
-
-def vat_price_calc(price=Decimal(0)):
-    if not isinstance(price, Decimal):
-        price = Decimal(price)
-    global vat
-    price = price + price * Decimal(vat)
-    vat = 0.25
-    return price
-    # return price + price * Decimal(vat)
-
-print(vat_price_calc(5))
-print(vat)
-print(vat_price_calc(5))
+# vat = 0.18
+#
+# def vat_price_calc(price=Decimal(0)):
+#     if not isinstance(price, Decimal):
+#         price = Decimal(price)
+#     global vat
+#     price = price + price * Decimal(vat)
+#     vat = 0.25
+#     return price
+#     # return price + price * Decimal(vat)
+#
+# print(vat_price_calc(5))
+# print(vat)
+# print(vat_price_calc(5))
