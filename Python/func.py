@@ -72,6 +72,8 @@ from decimal import Decimal
 #
 #
 # func(x=0)
+
+
 def func(arg1=range(1,101)):
     for x in arg1:
         if (x % 15) == 0:
