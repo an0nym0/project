@@ -1,35 +1,33 @@
-import re
+import phonenumbers
+import pycountry
+from phonenumbers.phonenumberutil import PhoneMetadata
+from phonenumbers import geocoder
+from phonenumbers.phonenumberutil import (
+    region_code_for_country_code,
+    region_code_for_number,
+    national_significant_number
+)
+from phonenumbers import carrier
+from phonenumbers import timezone
 
+text = '+16473612505'
+text1 = '+73812332308'
 
-def main():
-    in_f = open('E:/Projects/parse_emails_and_other_stuff/export5/export5.csv', "r")
-    out_f = open('E:/Projects/parse_emails_and_other_stuff/export5/export6.csv', "w")
-    i = 0
+x=phonenumbers.parse(text1, None)
+print(x)
 
-    for l in in_f.readlines():
+y=str(geocoder.country_name_for_number(x, "en"))
+print(y)
 
-        string = l.split(";")
-        #		print string  ### TODO delete debug
+z=str(geocoder.description_for_number(x, "en"))
+print(z)
 
-        i = i + 1
-        string[10] = string[10][:-1]
-        #		raw_input("Press Enter to continue...")  ### TODO delete debug
-        if i == 1:
-            out_f.write(";".join(string) + "\n")
-            continue
+code=region_code_for_country_code(x.country_code)
+print(code)
 
-        if not (re.match(r'\A[A-Z0-9-]{36}\Z', string[0])):
-            print("\nDied in string " + str(i) + " arg 1: \n" + l)
-            exit(1)
-        elif not (re.match(r'\A[ ,A-Za-z-()]*\Z', string[4])):
-            print("\nDied in string " + str(i) + " arg 5: " + string[4] + "\n" + l)
-            exit(1)
-        #		elif not re.search('[A-Z]|\d|-{22}', string[10] ):
-        #			print "\nDied in string " + str(i) + " arg 10: \n" + l
-        #			exit(1)
-        else:
-            out_f.write(";".join(string) + "\n")
+country = pycountry.countries.get(alpha_2=str(code))
+print(country)
 
-
-if __name__ == "__main__":
-    main()
+#short = national_significant_number(text1)
+short1= PhoneMetadata.short_metadata_for_region(code)
+print(short1)
